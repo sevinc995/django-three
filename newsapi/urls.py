@@ -5,3 +5,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/news/", include("news.urls")),
 ]
+
+
+
+
