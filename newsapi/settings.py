@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-u5&&-q+19c^7#=mgdep8t*%%4186_s7jt^#*tek-kc@4d27xb^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -68,7 +68,15 @@ WSGI_APPLICATION = "newsapi.wsgi.application"
 
 DATABASES = {
     "default": {
-        
+        "ENGINE":"django.db.backends.postgresql",
+        "NAME": os.getenv('PGDATABASE'),
+        "USER": os.getenv('PGUSER'),
+        "HOST": os.getenv('PGHOST'),
+        "PASSWORD": os.getenv('PGPASSWORD'),
+        "PORT": os.getenv('PGPORT'),
+        "OPTIONS": {
+            'sslmode': 'require',
+        }
     }
 }
 
